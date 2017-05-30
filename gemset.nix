@@ -18,10 +18,10 @@
   oga = {
     source = {
       remotes = ["https://rubygems.org"];
-      sha256 = "1f6p361a8c7li2j0cgp52pdam3r36pcg2v65922kbv8738bvsqwq";
+      sha256 = "19601abamhl3g87jhvw5b13qmprkwadpqhqcsgq4mjgjw5aim77v";
       type = "gem";
     };
-    version = "2.8";
+    version = "2.9";
   };
   rack = {
     source = {
@@ -50,17 +50,17 @@
   sinatra = {
     source = {
       remotes = ["https://rubygems.org"];
-      sha256 = "1b81kbr65mmcl9cdq2r6yc16wklyp798rxkgmm5pr9fvsj7jwmxp";
+      sha256 = "0byxzl7rx3ki0xd7aiv1x8mbah7hzd8f81l65nq8857kmgzj1jqq";
       type = "gem";
     };
-    version = "1.4.7";
+    version = "1.4.8";
   };
   tilt = {
     source = {
       remotes = ["https://rubygems.org"];
-      sha256 = "0lgk8bfx24959yq1cn55php3321wddw947mgj07bxfnwyipy9hqf";
+      sha256 = "1is1ayw5049z8pd7slsk870bddyy5g2imp4z78lnvl8qsl8l0s7b";
       type = "gem";
     };
-    version = "2.0.5";
+    version = "2.0.7";
   };
 }

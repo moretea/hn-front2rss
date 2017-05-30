@@ -2,15 +2,11 @@
 let
   env = bundlerEnv {
     name = "hn-rss-ruby-env";
-    inherit ruby;
+#    inherit ruby;
     gemfile = ./Gemfile;
     lockfile = ./Gemfile.lock;
     gemset = ./gemset.nix;
   };
-  script = writeScript "hn-front2rss" ''
-    #!/${bash}/bin/bash
-    ${env}/bin/bundle exec ${ruby}/bin/ruby ${./server.rb} $@
-  '';
 in
 stdenv.mkDerivation rec {
   version = "0.1.0";
@@ -21,11 +17,12 @@ stdenv.mkDerivation rec {
     license = "GPL-3.0";
   };
 
-  phases = "linkPhase";
+  buildInputs = [ env.wrappedRuby ];
 
-  linkPhase = ''
+  buildCommand = ''
     mkdir -p $out/bin
-    ln -s ${script} $out/bin/hn-front2rss
+    install -D -m755 ${./bin/hn-front2rss}  $out/bin/hn-front2rss
+    patchShebangs $out/bin/hn-front2rss
   '';
 }
 

@@ -14,3 +14,8 @@ https://news.ycombinator.com/front?day=2017-01-07&p=1 and
 https://news.ycombinator.com/front?day=2017-01-07&p=2.
 
 I recommend to use Tiny Tiny RSS to queue incoming stories.
+
+## Installation on nixos
+- Fetch the git repository
+- Import the module in nixos-service
+- Enable the service `services.hn-front2rss.enable = true`

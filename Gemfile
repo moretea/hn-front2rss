@@ -1,3 +1,2 @@
-source "https://rubygems.org"
-gem "sinatra"
-gem "oga"
+source 'https://rubygems.org'
+gemspec

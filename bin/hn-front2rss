@@ -1,10 +1,27 @@
+#!/usr/bin/env ruby
 require "erb"
 require "net/http"
 
-require "bundler"
-Bundler.setup
 require "sinatra"
 require "oga"
+
+TEMPLATE = ERB.new(<<EOTEMPLATE)
+<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+  <channel>
+    <title>Hacker News Frontpage</title>
+    <link>http://news.ycombinator.com</link>
+    <language>en</language>
+    <description>Hacker News Frontpage</description>
+    <% items.each do |item| %>
+      <item>
+        <title><%= item[:title] %></title>
+        <guid><%= item[:id] %></guid>
+        <link><%= item[:commentLink] %></link>
+      </item>
+    <% end %>
+  </channel>
+</rss>
+EOTEMPLATE
 
 
 def process(day, page)
@@ -30,8 +47,7 @@ def process(day, page)
 end
 
 def generate_rss(items)
-  renderer = ERB.new(File.read("rss.xml.erb"))
-  renderer.result(binding)
+  TEMPLATE.result(binding)
 end
 
 get "/hn.rss" do
