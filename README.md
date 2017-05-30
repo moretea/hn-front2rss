@@ -1,4 +1,4 @@
-#hn-front2rss
+# hn-front2rss
 
 This goal of this project is to reduce the time I'm spending on Hacker News.
 I really love the quality of the submissions and the interesting discussions about them.
@@ -17,5 +17,5 @@ I recommend to use Tiny Tiny RSS to queue incoming stories.
 
 ## Installation on nixos
 - Fetch the git repository
-- Import the module in nixos-service
+- Import the module in `$git_root/nixos-service`
 - Enable the service `services.hn-front2rss.enable = true`
